@@ -13,6 +13,7 @@ const INITIAL_DECK : Array = [
 
 var deck : Array = INITIAL_DECK
 
+
 const MAX_CARDS_IN_HAND : int = 5
 const MAX_DISCARDS : int = 6
 var player1_hand : Array 
@@ -36,10 +37,10 @@ func start_new_ante():
 	for i in MAX_CARDS_IN_HAND:
 		player1_hand.append(deck.pop_back())
 		player2_hand.append(deck.pop_back())
-	print(player1_hand)
-	print(player2_hand)
+	
 
+func start_new_round():
+	pass
+	
 
-
-
-
+#	print(PokerHand.determine_hand([[2, 'D'], [2, 'H'], [5, 'S'], [4, 'C'], [12, 'H']]))

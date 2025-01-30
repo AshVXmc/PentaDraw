@@ -14,19 +14,26 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/Ante.gd"
 }, {
-"base": "Node2D",
-"class": "PokerHandDeterminer",
+"base": "Sprite",
+"class": "Card",
 "language": "GDScript",
-"path": "res://scripts/PokerHandDeterminer.gd"
+"path": "res://scripts/Card.gd"
+}, {
+"base": "Object",
+"class": "PokerHand",
+"language": "GDScript",
+"path": "res://scripts/PokerHand.gd"
 } ]
 _global_script_class_icons={
 "Ante": "",
-"PokerHandDeterminer": ""
+"Card": "",
+"PokerHand": ""
 }
 
 [application]
 
 config/name="PentaDraw"
+run/main_scene="res://scenes/Ante.tscn"
 config/icon="res://icon.png"
 
 [gui]
@@ -39,4 +46,5 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+2d/snapping/use_gpu_pixel_snap=true
 environment/default_environment="res://default_env.tres"
