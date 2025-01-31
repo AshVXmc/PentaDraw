@@ -28,6 +28,8 @@ func _ready():
 	
 
 func start_new_ante():
+	# TODO: use randomize as .shuffle produces the same result over and over.
+	randomize()
 	deck.shuffle()
 	current_turn = 1
 	player1_hand = []
@@ -37,10 +39,26 @@ func start_new_ante():
 	for i in MAX_CARDS_IN_HAND:
 		player1_hand.append(deck.pop_back())
 		player2_hand.append(deck.pop_back())
-	
+	start_new_round()
+
 
 func start_new_round():
-	pass
-	
+	print(player1_hand)
+	var player_1_counter = 1
+	for card in player1_hand:
+		var number : int = card[0]
+		var suit : int
+		match card[1]:
+			'H':
+				suit = 0
+			'S':
+				suit = 1
+			'C':
+				suit = 2
+			'D':
+				suit = 3
+		get_node("Player1Hand/Card" + str(player_1_counter) + "Sprite").set_card_texture(number, suit) 
+		player_1_counter += 1
+		print(number, suit)
 
 #	print(PokerHand.determine_hand([[2, 'D'], [2, 'H'], [5, 'S'], [4, 'C'], [12, 'H']]))
