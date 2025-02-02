@@ -20,6 +20,8 @@ var player1_hand : Array
 var player2_hand : Array 
 var player1_discard_count : int 
 var player2_discard_count : int 
+var player1_money : int 
+var player2_money : int
 var current_turn = 1 # 1 or 2
 
 
@@ -36,6 +38,8 @@ func start_new_ante():
 	player2_hand = []
 	player1_discard_count = MAX_DISCARDS
 	player2_discard_count = MAX_DISCARDS
+	player1_money = 6
+	player2_money = 6
 	for i in MAX_CARDS_IN_HAND:
 		player1_hand.append(deck.pop_back())
 		player2_hand.append(deck.pop_back())
@@ -43,7 +47,19 @@ func start_new_ante():
 
 
 func start_new_round():
-	print(player1_hand)
+#	print(player1_hand)
+	var i : int = 1
+	while i <= 5:
+		get_node("Player1Hand/Card" + str(i)).position = $DeckControl/DeckSprite.global_position
+		get_node("Player1Hand/Card" + str(i)).set_texture_to_face_down()
+		
+		i += 1
+	yield(get_tree().create_timer(0.2),"timeout")
+	$AnimationPlayer.play("Player1DistributeHand")
+
+
+
+func flip_up_card_texture():
 	var player_1_counter = 1
 	for card in player1_hand:
 		var number : int = card[0]
@@ -57,8 +73,9 @@ func start_new_round():
 				suit = 2
 			'D':
 				suit = 3
-		get_node("Player1Hand/Card" + str(player_1_counter) + "Sprite").set_card_texture(number, suit) 
+		get_node("Player1Hand/Card" + str(player_1_counter)).set_card_texture(number, suit) 
 		player_1_counter += 1
-		print(number, suit)
+		yield(get_tree().create_timer(0.1), "timeout")
+#		print(number, suit)
 
-#	print(PokerHand.determine_hand([[2, 'D'], [2, 'H'], [5, 'S'], [4, 'C'], [12, 'H']]))
+

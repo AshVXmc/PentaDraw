@@ -1,6 +1,27 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/Card.gd" type="Script" id=1]
+[ext_resource path="res://assets/playing_cards_spritesheet.png" type="Texture" id=2]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 12, 16 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 4.5, 6.5 )
 
 [node name="Card" type="Sprite"]
+scale = Vector2( 8, 8 )
+texture = SubResource( 1 )
 script = ExtResource( 1 )
+
+[node name="MouseDetectorArea2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MouseDetectorArea2D"]
+shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[connection signal="input_event" from="MouseDetectorArea2D" to="." method="_on_MouseDetectorArea2D_input_event"]
+[connection signal="mouse_entered" from="MouseDetectorArea2D" to="." method="_on_MouseDetectorArea2D_mouse_entered"]
+[connection signal="mouse_exited" from="MouseDetectorArea2D" to="." method="_on_MouseDetectorArea2D_mouse_exited"]
