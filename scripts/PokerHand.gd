@@ -23,7 +23,7 @@ class DeckSorter:
 
 # returns two values inside an array, hand type and points
 static func determine_hand(hand : Array) -> Array:
-	hand.sort_custom(DeckSorter, "sort_ascending")
+#	hand.sort_custom(DeckSorter, "sort_ascending")
 	var points : int = 0
 	
 	print(hand)

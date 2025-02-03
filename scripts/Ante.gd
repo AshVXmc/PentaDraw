@@ -24,6 +24,11 @@ var player1_money : int
 var player2_money : int
 var current_turn = 1 # 1 or 2
 
+class DeckSorter:
+	static func sort_ascending(a, b):
+		if a[0] < b[0]: 
+			return true
+		return false
 
 func _ready():
 	start_new_ante()
@@ -31,6 +36,7 @@ func _ready():
 
 func start_new_ante():
 	# TODO: use randomize as .shuffle produces the same result over and over.
+	$TurnInterface.visible = false
 	randomize()
 	deck.shuffle()
 	current_turn = 1
@@ -43,20 +49,22 @@ func start_new_ante():
 	for i in MAX_CARDS_IN_HAND:
 		player1_hand.append(deck.pop_back())
 		player2_hand.append(deck.pop_back())
+	player1_hand.sort_custom(DeckSorter, "sort_ascending")
+	player2_hand.sort_custom(DeckSorter, "sort_ascending")
 	start_new_round()
 
 
 func start_new_round():
 #	print(player1_hand)
-	var i : int = 1
-	while i <= 5:
-		get_node("Player1Hand/Card" + str(i)).position = $DeckControl/DeckSprite.global_position
-		get_node("Player1Hand/Card" + str(i)).set_texture_to_face_down()
-		
-		i += 1
+	var i1 : int = 1
+	while i1 <= 5:
+		get_node("Player1Hand/Card" + str(i1)).position = $DeckControl/DeckSprite.global_position
+		get_node("Player1Hand/Card" + str(i1)).owner_of_hand = 1
+		get_node("Player1Hand/Card" + str(i1)).set_texture_to_face_down()
+		i1 += 1
 	yield(get_tree().create_timer(0.2),"timeout")
 	$AnimationPlayer.play("Player1DistributeHand")
-
+	
 
 
 func flip_up_card_texture():
@@ -78,4 +86,7 @@ func flip_up_card_texture():
 		yield(get_tree().create_timer(0.1), "timeout")
 #		print(number, suit)
 
+	$TurnInterface.visible = true
 
+func deal_new_card(player : int, card : Array, card_index : int):
+	pass
