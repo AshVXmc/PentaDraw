@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://scripts/Ante.gd" type="Script" id=1]
 [ext_resource path="res://assets/ui/textbox.png" type="Texture" id=2]
@@ -9,55 +9,295 @@
 [ext_resource path="res://assets/ui/button.png" type="Texture" id=7]
 [ext_resource path="res://assets/ui/button_pressed.png" type="Texture" id=8]
 
-[sub_resource type="DynamicFont" id=1]
-size = 48
-extra_spacing_char = 1
-font_data = ExtResource( 3 )
+[sub_resource type="Animation" id=27]
+resource_name = "Player1Card1Discard"
+length = 0.4
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Player1Hand/Card1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.35 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 366, 492 ), Vector2( -500, 400 ), Vector2( 920, 300 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Player1Hand/Card1:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
 
-[sub_resource type="DynamicFont" id=2]
-size = 32
-font_data = ExtResource( 3 )
+[sub_resource type="Animation" id=32]
+resource_name = "Player1Card1Redraw"
+length = 0.1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Player1Hand/Card1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 920, 300 ), Vector2( 366, 492 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Player1Hand/Card1:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
-[sub_resource type="DynamicFont" id=11]
-font_data = ExtResource( 3 )
+[sub_resource type="Animation" id=28]
+resource_name = "Player1Card2Discard"
+length = 0.4
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Player1Hand/Card2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.35 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 481, 492 ), Vector2( -500, 400 ), Vector2( 920, 300 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Player1Hand/Card2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
 
-[sub_resource type="StreamTexture" id=23]
-flags = 4
-load_path = "res://.import/textbox.png-6cab512418d315d86a38e47eb6144660.stex"
+[sub_resource type="Animation" id=33]
+resource_name = "Player1Card2Redraw"
+length = 0.1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Player1Hand/Card2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 920, 300 ), Vector2( 481, 492 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Player1Hand/Card2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
-[sub_resource type="DynamicFontData" id=25]
-font_path = "res://assets/fonts/novem___.ttf"
+[sub_resource type="Animation" id=29]
+resource_name = "Player1Card3Discard"
+length = 0.4
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Player1Hand/Card3:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.35 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 596, 492 ), Vector2( -500, 400 ), Vector2( 920, 300 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Player1Hand/Card3:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
 
-[sub_resource type="DynamicFont" id=24]
-size = 32
-font_data = SubResource( 25 )
+[sub_resource type="Animation" id=34]
+resource_name = "Player1Card3Redraw"
+length = 0.1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Player1Hand/Card3:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 920, 300 ), Vector2( 596, 492 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Player1Hand/Card3:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
-[sub_resource type="DynamicFont" id=26]
-font_data = SubResource( 25 )
+[sub_resource type="Animation" id=30]
+resource_name = "Player1Card4Discard"
+length = 0.4
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Player1Hand/Card4:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.35 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 711, 492 ), Vector2( -500, 400 ), Vector2( 920, 300 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Player1Hand/Card4:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
 
-[sub_resource type="AtlasTexture" id=18]
-atlas = ExtResource( 4 )
-region = Rect2( 0, 0, 12, 16 )
+[sub_resource type="Animation" id=35]
+resource_name = "Player1Card4Redraw"
+length = 0.1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Player1Hand/Card4:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 920, 300 ), Vector2( 711, 492 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Player1Hand/Card4:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
-[sub_resource type="AtlasTexture" id=19]
-atlas = ExtResource( 4 )
-region = Rect2( 0, 0, 12, 16 )
+[sub_resource type="Animation" id=31]
+resource_name = "Player1Card5Discard"
+length = 0.4
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Player1Hand/Card5:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.35 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 826, 492 ), Vector2( -500, 400 ), Vector2( 920, 300 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Player1Hand/Card5:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
 
-[sub_resource type="AtlasTexture" id=20]
-atlas = ExtResource( 4 )
-region = Rect2( 0, 0, 12, 16 )
-
-[sub_resource type="AtlasTexture" id=21]
-atlas = ExtResource( 4 )
-region = Rect2( 0, 0, 12, 16 )
-
-[sub_resource type="AtlasTexture" id=22]
-atlas = ExtResource( 4 )
-region = Rect2( 0, 0, 12, 16 )
-
-[sub_resource type="AtlasTexture" id=8]
-atlas = ExtResource( 4 )
-region = Rect2( 0, 64, 12, 16 )
+[sub_resource type="Animation" id=36]
+resource_name = "Player1Card5Redraw"
+length = 0.1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Player1Hand/Card5:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 920, 300 ), Vector2( 826, 492 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Player1Hand/Card5:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=10]
 resource_name = "Player1DistributeHand"
@@ -187,6 +427,128 @@ tracks/3/keys = {
 "update": 0,
 "values": [ Vector2( 826, 492 ) ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("Player1Hand/Card1:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 920, 300 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Player1Hand/Card4:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Player1Hand/Card1:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Player1Hand/Card2:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Player1Hand/Card3:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Player1Hand/Card5:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+extra_spacing_char = 1
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=11]
+font_data = ExtResource( 3 )
+
+[sub_resource type="StreamTexture" id=23]
+flags = 4
+load_path = "res://.import/textbox.png-6cab512418d315d86a38e47eb6144660.stex"
+
+[sub_resource type="DynamicFontData" id=25]
+font_path = "res://assets/fonts/novem___.ttf"
+
+[sub_resource type="DynamicFont" id=24]
+size = 32
+font_data = SubResource( 25 )
+
+[sub_resource type="DynamicFont" id=26]
+font_data = SubResource( 25 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 12, 16 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 12, 16 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 12, 16 )
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 12, 16 )
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 12, 16 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 64, 12, 16 )
 
 [node name="AnteUI" type="CanvasLayer"]
 
@@ -195,6 +557,21 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 script = ExtResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Ante"]
+playback_speed = 0.83
+anims/Player1Card1Discard = SubResource( 27 )
+anims/Player1Card1Redraw = SubResource( 32 )
+anims/Player1Card2Discard = SubResource( 28 )
+anims/Player1Card2Redraw = SubResource( 33 )
+anims/Player1Card3Discard = SubResource( 29 )
+anims/Player1Card3Redraw = SubResource( 34 )
+anims/Player1Card4Discard = SubResource( 30 )
+anims/Player1Card4Redraw = SubResource( 35 )
+anims/Player1Card5Discard = SubResource( 31 )
+anims/Player1Card5Redraw = SubResource( 36 )
+anims/Player1DistributeHand = SubResource( 10 )
+anims/RESET = SubResource( 17 )
 
 [node name="Background" type="ColorRect" parent="Ante"]
 anchor_right = 1.0
@@ -355,7 +732,7 @@ position = Vector2( 711, 492 )
 position = Vector2( 826, 492 )
 
 [node name="Card1" parent="Ante/Player1Hand" instance=ExtResource( 5 )]
-position = Vector2( 366, 492 )
+position = Vector2( 920, 300 )
 texture = SubResource( 18 )
 
 [node name="Card2" parent="Ante/Player1Hand" instance=ExtResource( 5 )]
@@ -389,11 +766,6 @@ position = Vector2( 920, 300 )
 scale = Vector2( 8, 8 )
 texture = SubResource( 8 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Ante"]
-playback_speed = 0.83
-anims/Player1DistributeHand = SubResource( 10 )
-anims/RESET = SubResource( 17 )
-
 [node name="ListOfHandsButton" type="TextureButton" parent="Ante"]
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -408,7 +780,7 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="Player1DiscardPosition2D" type="Position2D" parent="Ante"]
-position = Vector2( -80, 400 )
+position = Vector2( -500, 400 )
 
 [node name="Player2DiscardPosition2D" type="Position2D" parent="Ante"]
-position = Vector2( -80, 200 )
+position = Vector2( -500, 200 )

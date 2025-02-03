@@ -24,6 +24,7 @@ var player1_money : int
 var player2_money : int
 var current_turn = 1 # 1 or 2
 
+
 class DeckSorter:
 	static func sort_ascending(a, b):
 		if a[0] < b[0]: 
@@ -60,6 +61,7 @@ func start_new_round():
 	while i1 <= 5:
 		get_node("Player1Hand/Card" + str(i1)).position = $DeckControl/DeckSprite.global_position
 		get_node("Player1Hand/Card" + str(i1)).owner_of_hand = 1
+		get_node("Player1Hand/Card" + str(i1)).index = i1
 		get_node("Player1Hand/Card" + str(i1)).set_texture_to_face_down()
 		i1 += 1
 	yield(get_tree().create_timer(0.2),"timeout")
@@ -88,5 +90,4 @@ func flip_up_card_texture():
 
 	$TurnInterface.visible = true
 
-func deal_new_card(player : int, card : Array, card_index : int):
-	pass
+
