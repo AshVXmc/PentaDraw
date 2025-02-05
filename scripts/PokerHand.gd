@@ -15,14 +15,14 @@ enum {
 }
 
 
-class DeckSorter:
-	static func sort_ascending(a, b):
-		if a[0] < b[0]: 
-			return true
-		return false
+#class DeckSorter:
+#	static func sort_ascending(a, b):
+#		if a[0] < b[0]: 
+#			return true
+#		return false
 
 # returns two values inside an array, hand type and points
-static func determine_hand(hand : Array) -> Array:
+static func check_hand(hand : Array) -> Array:
 #	hand.sort_custom(DeckSorter, "sort_ascending")
 	var points : int = 0
 	
@@ -92,6 +92,30 @@ static func determine_hand(hand : Array) -> Array:
 	points += hand[4][0]
 	return [HIGH_CARD, points]
 
+static func check_hand_to_string(hand : Array) -> Array:
+	var str_result : Array = check_hand(hand)
+	match str_result[0]:
+		0:
+			str_result[0] = "High Card"
+		1:
+			str_result[0] = "One Pair"
+		2:
+			str_result[0] = "Two Pair"
+		3:
+			str_result[0] = "Three of a Kind"
+		4:
+			str_result[0] = "Straight"
+		5:
+			str_result[0] = "Flush"
+		6:
+			str_result[0] = "Full House"
+		7:
+			str_result[0] = "Four of a Kind"
+		8:
+			str_result[0] = "Straight Flush"
+		9:
+			str_result[0] = "Royal Flush"
+	return str_result
 
 static func is_royal_flush(hand : Array) -> bool:
 	return is_straight_flush(hand) and hand[4][0] == 14 # ACE

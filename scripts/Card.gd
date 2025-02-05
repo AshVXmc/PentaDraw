@@ -54,6 +54,7 @@ func _on_MouseDetectorArea2D_input_event(viewport, event, shape_idx):
 			discard(ante.deck.pop_back())
 
 func discard(new_card : Array):
+	ante.can_check = false
 	ante_animation_player.play("Player" + str(owner_of_hand) + "Card" + str(index) + "Discard")
 	$MouseDetectorArea2D/CollisionShape2D.disabled = true
 	yield(get_tree().create_timer(0.4), "timeout")
@@ -68,9 +69,13 @@ func discard(new_card : Array):
 			suit = 2
 		'D':
 			suit = 3
+	ante.player1_hand[index - 1] = [number, new_card[1]]
 	set_card_texture(number, suit)
-	
-	
 	ante_animation_player.play("Player" + str(owner_of_hand) + "Card" + str(index) + "Redraw")
+	
+	if owner_of_hand == OWNER.PLAYER_1:
+		ante.sort_player1_hand_after_discard()
+	
 	$MouseDetectorArea2D/CollisionShape2D.disabled = false
+	ante.can_check = true
 

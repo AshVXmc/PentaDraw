@@ -24,12 +24,15 @@ var player1_money : int
 var player2_money : int
 var current_turn = 1 # 1 or 2
 
+# prevent player from checking during discard animations
+var can_check : bool = true
 
 class DeckSorter:
 	static func sort_ascending(a, b):
 		if a[0] < b[0]: 
 			return true
 		return false
+		
 
 func _ready():
 	start_new_ante()
@@ -38,6 +41,7 @@ func _ready():
 func start_new_ante():
 	# TODO: use randomize as .shuffle produces the same result over and over.
 	$TurnInterface.visible = false
+	
 	randomize()
 	deck.shuffle()
 	current_turn = 1
@@ -85,9 +89,23 @@ func flip_up_card_texture():
 				suit = 3
 		get_node("Player1Hand/Card" + str(player_1_counter)).set_card_texture(number, suit) 
 		player_1_counter += 1
-		yield(get_tree().create_timer(0.1), "timeout")
+		yield(get_tree().create_timer(0.075), "timeout")
 #		print(number, suit)
-
+	
 	$TurnInterface.visible = true
+
+func sort_player1_hand_after_discard():
+#	print(player1_hand)
+	player1_hand.sort_custom(DeckSorter, "sort_ascending")
+	flip_up_card_texture()
+	
+
+
+func _on_CheckButton_pressed():
+	if can_check:
+		if current_turn == 1:
+			print("Player 1 hand: " + str(PokerHand.check_hand_to_string(player1_hand)))
+		elif current_turn == 2:
+			pass
 
 
